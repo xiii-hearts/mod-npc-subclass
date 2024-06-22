@@ -38,9 +38,10 @@ Weapon Proficiencies
 - Gun Proficiency
 
 ## Installation
-1) Place the module under the `modules` folder/directory of your AzerothCore source.
-2) Re-run cmake and launch a clean build of AzerothCore.
-3) Put the SQL file to the world database.
+1) Unzip and place the module folder under the `modules` folder/directory of your AzerothCore source.
+2) Rename `NPC-Subclass-Equipment-main` folder to `NPC-Subclass-Equipment`
+3) Re-run cmake and launch a clean build of AzerothCore.
+4) Put the SQL file to the world database.
 
 ## How To Use
 - Add the npc to the world `.npc add 600001` or `.npc add temp 600001`
