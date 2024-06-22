@@ -11,7 +11,6 @@
 
 ### To-Do ###
 ------------------------------------------------------------------------------------------------------------------
-- Add exception for players with the learned abilities.
 - Add Warning/Restriction when player do not meet the cost and level requirement.
 - Add Basic SubClasses.
 - Add Intermediate SubClasses,
