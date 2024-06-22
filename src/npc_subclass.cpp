@@ -20,7 +20,7 @@
 ### Data ###
 ------------------------------------------------------------------------------------------------------------------
 - Type: NPC
-- Script: SubClass_NPC
+- Script: SubClassE_NPC
 - Config: Yes
 - SQL: Yes
 - NPC ID: 600001
@@ -75,12 +75,12 @@ public:
     }
 };
 
-class SubClass_NPC : public CreatureScript
+class SubClassE_NPC : public CreatureScript
 {
 
 public:
 
-    SubClass_NPC() : CreatureScript("SubClass_NPC") {}
+    SubClassE_NPC() : CreatureScript("SubClassE_NPC") {}
 
     bool OnGossipHello(Player* player, Creature* creature)
     {
