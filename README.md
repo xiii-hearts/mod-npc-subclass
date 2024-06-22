@@ -44,7 +44,7 @@ Weapon Proficiencies
 4) Put the SQL file to the world database.
 
 ## How To Use
-- Add the npc to the world `.npc add 600001` or `.npc add temp 600001`
+- Add the npc to the world by using GM command `.npc add 600001` or `.npc add temp 600001`
 
 
 
