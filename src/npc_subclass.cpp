@@ -27,11 +27,11 @@
 - NPC ID: 600001
 
 
-### Version ###
+### Update ###
 ------------------------------------------------------------------------------------------------------------------
-- v0.1.1.1 - Added Exception For Players With The Learned Abilities/Skills.
-- v0.1.1.0 - Added Weapons Proficiency.
-- v0.1.0.0 - Added Armor Proficiency.
+- Added Exception For Players With The Learned Abilities/Skills.
+- Added Weapons Proficiency.
+- Added Armor Proficiency.
 
 */
 
