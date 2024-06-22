@@ -41,36 +41,36 @@
 #include "ScriptedCreature.h"
 #include "ScriptedGossip.h"
 
-bool SubClassAnnounceModule;
-bool SubClassEnableAI;
+bool SubClassEAnnounceModule;
+bool SubClassEEnableAI;
 
-class SubClassConfig : public WorldScript
+class SubClassEConfig : public WorldScript
 {
 public:
-    SubClassConfig() : WorldScript("SubClassConfig_conf") { }
+    SubClassEConfig() : WorldScript("SubClassEConfig_conf") { }
 
     void OnBeforeConfigLoad(bool reload) override
     {
         if (!reload) {
-            SubClassAnnounceModule = sConfigMgr->GetOption<bool>("SubClassNPC.Announce", 1);
-            SubClassEnableAI = sConfigMgr->GetOption<bool>("SubClassNPC.EnableAI", 1);
+            SubClassEAnnounceModule = sConfigMgr->GetOption<bool>("SubClassENPC.Announce", 1);
+            SubClassEEnableAI = sConfigMgr->GetOption<bool>("SubClassENPC.EnableAI", 1);
         }
     }
 };
 
-class SubClassAnnounce : public PlayerScript
+class SubClassEAnnounce : public PlayerScript
 {
 
 public:
 
-    SubClassAnnounce() : PlayerScript("SubClassAnnounce") {}
+    SubClassEAnnounce() : PlayerScript("SubClassEAnnounce") {}
 
     void OnLogin(Player* player)
     {
         // Announce Module
-        if (SubClassAnnounceModule)
+        if (SubClassEAnnounceModule)
         {
-            ChatHandler(player->GetSession()).SendSysMessage("This server is running the |cff4CFF00SubClassNPC |rmodule.");
+            ChatHandler(player->GetSession()).SendSysMessage("This server is running the |cff4CFF00SubClassENPC |rmodule.");
         }
     }
 };
@@ -778,7 +778,7 @@ public:
         // Called at World update tick
         void UpdateAI(const uint32 diff)
         {
-            if (SubClassEnableAI)
+            if (SubClassEEnableAI)
             {
                 if (MessageTimer <= diff)
                 {
@@ -829,9 +829,9 @@ public:
     }
 };
 
-void AddSubClassNPCScripts()
+void AddSubClassENPCScripts()
 {
-    new SubClassConfig();
-    new SubClassAnnounce();
+    new SubClassEConfig();
+    new SubClassEAnnounce();
     new SubClass_NPC();
 }
