@@ -8,7 +8,7 @@
 
 ## Description
 Adds an NPC that will teach all available Armors & Weapons Proficiency that are unavailable to any Classes.
-e.g - Priest will be able to learn Armor and Weapon proficiency like Plate Armour and Two-Handed Sword.
+- e.g - Priest will be able to learn Armor and Weapon proficiency like Plate Armour and Two-Handed Sword.
 
 All of the procificiencies can be learned through purchasing the desired skills.
 
