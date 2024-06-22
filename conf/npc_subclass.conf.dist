@@ -1,0 +1,11 @@
+[worldserver]
+
+###################################################################################################
+#	SubClass NPC
+###################################################################################################
+
+# Announce the module when the player logs in?
+SubClassNPC.Announce = 1
+
+# Enable random emotes for the NPC?
+SubClassNPC.EnableAI= 1
