@@ -6,7 +6,7 @@
 
 ### Description ###
 ------------------------------------------------------------------------------------------------------------------
-- Adds an NPC that will teach all available Armors, Weapons, Skills & Spells that is unavailable to the current Class.
+- Adds an NPC that will teach all available Armors, Weapons, Skills & Spells Proficiency that is unavailable to the current Class.
 - Creating SubClasses like character(s).
 
 ### To-Do ###
