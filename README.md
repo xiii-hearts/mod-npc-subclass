@@ -2,7 +2,7 @@
 
 - Latest build status with azerothcore:
 
-[![Build Status](https://github.com/azerothcore/NPC-Subclass-Equipment/actions/workflows/core-build.yml/badge.svg)](https://github.com/azerothcore/NPC-Subclass-Equipment)
+
 
 # NPC Subclass [Equipment] Module for Azerothcore
 
