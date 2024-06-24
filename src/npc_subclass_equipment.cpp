@@ -833,5 +833,5 @@ void AddSubClassENPCScripts()
 {
     new SubClassEConfig();
     new SubClassEAnnounce();
-    new SubClass_NPC();
+    new SubClassE_NPC();
 }
