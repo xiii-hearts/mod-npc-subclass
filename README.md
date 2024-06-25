@@ -4,10 +4,10 @@
 
 
 
-# NPC Subclass [Equipment] Module for Azerothcore
+# NPC [Equipment Proficiency] Module for Azerothcore
 
 ## Description
-Adds an NPC that will teach all available Armors & Weapons Proficiency that are unavailable to any Classes.
+Adds an NPC that will teach all available Armors & Weapons Proficiency that are unavailable to all Classes.
 - e.g - Priest will be able to learn Armor and Weapon proficiency like Plate Armour and Two-Handed Sword.
 
 All of the procificiencies can be learned through purchasing the desired skills.
