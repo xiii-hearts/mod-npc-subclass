@@ -5,7 +5,7 @@ SET
 @Entry 		:= 600001,
 @Model 		:= 26571, -- The Black Knight
 @Name 		:= "The Gentle Goliath",
-@Title 		:= "Equipment SubClass Trainer",
+@Title 		:= "Equipment Proficiency Trainer",
 @Icon 		:= "Speak",
 @GossipMenu := 0,
 @MinLevel 	:= 80,
@@ -18,7 +18,7 @@ SET
 @TypeFlags 	:= 0,
 @FlagsExtra := 2,
 @AIName		:= "SmartAI",
-@Script 	:= "SubClassE_NPC";
+@Script 	:= "EquipPro_NPC";
 
 -- NPC
 DELETE FROM `creature_template` WHERE `entry` = @Entry;
