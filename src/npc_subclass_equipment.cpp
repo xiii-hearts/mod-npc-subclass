@@ -1,32 +1,33 @@
 /*
-# NPC - SubClass #
+# NPC - Equipment Proficiency #
 
 - This module is based on Azerothcore's Module NPC-All-Mounts (https://github.com/azerothcore/mod-npc-all-mounts).
-- Repurposed as NPC SubClass
+- Repurposed as NPC [Equipment Proficiency]
 
 ### Description ###
 ------------------------------------------------------------------------------------------------------------------
-- Adds an NPC that will teach all available Armors, Weapons, Skills & Spells Proficiency that is unavailable to the current Class.
+- Adds NPCs that will teach all available Armors, Weapons, Skills & Spells Proficiency that is unavailable to the current Class.
+- This module focus on Equipment Proficiency (Armors & Weapons)
 - Creating SubClasses like character(s).
 
 ### To-Do ###
 ------------------------------------------------------------------------------------------------------------------
 - Add Warning/Restriction when player do not meet the cost and level requirement.
-- Add Basic SubClasses.
-- Add Intermediate SubClasses,
-- Add Advanced SubClasses,
+- Add Basic Equipment/Skills Proficiency NPC.
+- Add Intermediate Skills Proficiency NPC,
+- Add Advanced Skills Proficiency NPC,
 - Test & Tweak SubClasses Skills & Spells (Balancing).
 
 ### Data ###
 ------------------------------------------------------------------------------------------------------------------
 - Type: NPC
-- Script: SubClassE_NPC
+- Script: EquipPro_NPC
 - Config: Yes
 - SQL: Yes
 - NPC ID: 600001
 
 
-### Update ###
+### Updates ###
 ------------------------------------------------------------------------------------------------------------------
 - Added Exception For Players With The Learned Abilities/Skills.
 - Added Weapons Proficiency.
@@ -41,46 +42,46 @@
 #include "ScriptedCreature.h"
 #include "ScriptedGossip.h"
 
-bool SubClassEAnnounceModule;
-bool SubClassEEnableAI;
+bool EquipProEAnnounceModule;
+bool EquipProEEnableAI;
 
-class SubClassEConfig : public WorldScript
+class EquipProConfig : public WorldScript
 {
 public:
-    SubClassEConfig() : WorldScript("SubClassEConfig_conf") { }
+    EquipProConfig() : WorldScript("EquipProConfig_conf") { }
 
     void OnBeforeConfigLoad(bool reload) override
     {
         if (!reload) {
-            SubClassEAnnounceModule = sConfigMgr->GetOption<bool>("SubClassENPC.Announce", 1);
-            SubClassEEnableAI = sConfigMgr->GetOption<bool>("SubClassENPC.EnableAI", 1);
+            EquipProAnnounceModule = sConfigMgr->GetOption<bool>("EquipProNPC.Announce", 1);
+            EquipProEEnableAI = sConfigMgr->GetOption<bool>("EquipProNPC.EnableAI", 1);
         }
     }
 };
 
-class SubClassEAnnounce : public PlayerScript
+class EquipProAnnounce : public PlayerScript
 {
 
 public:
 
-    SubClassEAnnounce() : PlayerScript("SubClassEAnnounce") {}
+    EquipProAnnounce() : PlayerScript("EquipProAnnounce") {}
 
     void OnLogin(Player* player)
     {
         // Announce Module
-        if (SubClassEAnnounceModule)
+        if (EquipProAnnounceModule)
         {
-            ChatHandler(player->GetSession()).SendSysMessage("This server is running the |cff4CFF00SubClassENPC |rmodule.");
+            ChatHandler(player->GetSession()).SendSysMessage("This server is running the |cff4CFF00EquipProNPC |rmodule.");
         }
     }
 };
 
-class SubClassE_NPC : public CreatureScript
+class EquipPro_NPC : public CreatureScript
 {
 
 public:
 
-    SubClassE_NPC() : CreatureScript("SubClassE_NPC") {}
+    EquipPro_NPC() : CreatureScript("EquipPro_NPC") {}
 
     bool OnGossipHello(Player* player, Creature* creature)
     {
@@ -778,7 +779,7 @@ public:
         // Called at World update tick
         void UpdateAI(const uint32 diff)
         {
-            if (SubClassEEnableAI)
+            if (EquipProEnableAI)
             {
                 if (MessageTimer <= diff)
                 {
@@ -789,14 +790,14 @@ public:
                     {
                     case 1:
                     {
-                        me->Say("I can teach you anything and everything!", LANG_UNIVERSAL);
+                        me->Say("I can teach you anything and everything about equipment!", LANG_UNIVERSAL);
                         me->HandleEmoteCommand(EMOTE_ONESHOT_WAVE);
                         MessageTimer = urand(60000, 180000);
                         break;
                     }
                     case 2:
                     {
-                        me->Say("You should learn to subclassing!", LANG_UNIVERSAL);
+                        me->Say("You gear up properly and differently!", LANG_UNIVERSAL);
                         me->HandleEmoteCommand(EMOTE_ONESHOT_WAVE);
                         MessageTimer = urand(60000, 180000);
                         break;
@@ -829,9 +830,9 @@ public:
     }
 };
 
-void AddSubClassENPCScripts()
+void AddEquipProNPCScripts()
 {
-    new SubClassEConfig();
-    new SubClassEAnnounce();
-    new SubClassE_NPC();
+    new EquipProConfig();
+    new EquipProAnnounce();
+    new EquipPro_NPC();
 }
