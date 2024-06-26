@@ -1,5 +1,5 @@
-void AddSubClassEqNPCScripts();
+void AddSubClassNPCScripts();
 
-void Addmod_npc_subclasseqScripts() {
-    AddSubClassEqCScripts();
+void Addmod_npc_subclassScripts() {
+    AddSubClassCScripts();
 }
