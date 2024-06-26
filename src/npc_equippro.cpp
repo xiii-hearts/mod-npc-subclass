@@ -790,14 +790,14 @@ public:
                     {
                     case 1:
                     {
-                        me->Say("I can teach you anything and everything!", LANG_UNIVERSAL);
+                        me->Say("I can teach you anything and everything about equipment!", LANG_UNIVERSAL);
                         me->HandleEmoteCommand(EMOTE_ONESHOT_WAVE);
                         MessageTimer = urand(60000, 180000);
                         break;
                     }
                     case 2:
                     {
-                        me->Say("You should learn to subclassing!", LANG_UNIVERSAL);
+                        me->Say("You should gear up properly and differently!!", LANG_UNIVERSAL);
                         me->HandleEmoteCommand(EMOTE_ONESHOT_WAVE);
                         MessageTimer = urand(60000, 180000);
                         break;
