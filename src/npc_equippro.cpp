@@ -54,7 +54,7 @@ public:
     {
         if (!reload) {
             SubClassEqAnnounceModule = sConfigMgr->GetOption<bool>("SubClassEqNPC.Announce", 1);
-            SubClassEqEEnableAI = sConfigMgr->GetOption<bool>("SubClassEqNPC.EnableAI", 1);
+            SubClassEqEnableAI = sConfigMgr->GetOption<bool>("SubClassEqNPC.EnableAI", 1);
         }
     }
 };
