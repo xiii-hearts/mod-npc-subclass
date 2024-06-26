@@ -5,7 +5,9 @@
 ###################################################################################################
 
 # Announce the module when the player logs in?
+# default = 1
 equipproNPC.Announce = 1
 
 # Enable random emotes for the NPC?
+#default = 1
 EquipProNPC.EnableAI= 1
