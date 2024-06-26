@@ -1,5 +1,6 @@
 void AddSubClassNPCScripts();
 
-void Addmod_npc_subclassScripts() {
-    AddSubClassScripts();
+void Addmod_npc_subclassScripts() 
+{
+    AddSubClassNPCScripts();
 }
