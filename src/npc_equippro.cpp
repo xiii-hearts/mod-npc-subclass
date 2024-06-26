@@ -12,7 +12,7 @@
 
 ### To-Do ###
 ------------------------------------------------------------------------------------------------------------------
-- Add Warning/Restriction when player do not meet the cost and level requirement.
+- Add Warnings/Restrictions when player do not meet the cost and level requirement.
 - Add Basic Equipment/Skills Proficiency NPC.
 - Add Intermediate Skills Proficiency NPC,
 - Add Advanced Skills Proficiency NPC,
@@ -21,7 +21,7 @@
 ### Data ###
 ------------------------------------------------------------------------------------------------------------------
 - Type: NPC
-- Script: EquipPro_NPC
+- Script: SubClassEq_NPC
 - Config: Yes
 - SQL: Yes
 - NPC ID: 600001
@@ -42,46 +42,46 @@
 #include "ScriptedCreature.h"
 #include "ScriptedGossip.h"
 
-bool EquipProEAnnounceModule;
-bool EquipProEEnableAI;
+bool SubClassEqEAnnounceModule;
+bool SubClassEqEEnableAI;
 
-class EquipProConfig : public WorldScript
+class SubClassEqConfig : public WorldScript
 {
 public:
-    EquipProConfig() : WorldScript("EquipProConfig_conf") { }
+    SubClassEqConfig() : WorldScript("SubClassEqConfig_conf") { }
 
     void OnBeforeConfigLoad(bool reload) override
     {
         if (!reload) {
-            EquipProAnnounceModule = sConfigMgr->GetOption<bool>("EquipProNPC.Announce", 1);
-            EquipProEEnableAI = sConfigMgr->GetOption<bool>("EquipProNPC.EnableAI", 1);
+            SubClassEqAnnounceModule = sConfigMgr->GetOption<bool>("SubClassEqNPC.Announce", 1);
+            SubClassEqEEnableAI = sConfigMgr->GetOption<bool>("SubClassEqNPC.EnableAI", 1);
         }
     }
 };
 
-class EquipProAnnounce : public PlayerScript
+class SubClassEqAnnounce : public PlayerScript
 {
 
 public:
 
-    EquipProAnnounce() : PlayerScript("EquipProAnnounce") {}
+    SubClassEqAnnounce() : PlayerScript("SubClassEqAnnounce") {}
 
     void OnLogin(Player* player)
     {
         // Announce Module
-        if (EquipProAnnounceModule)
+        if (SubClassEqAnnounceModule)
         {
-            ChatHandler(player->GetSession()).SendSysMessage("This server is running the |cff4CFF00EquipProNPC |rmodule.");
+            ChatHandler(player->GetSession()).SendSysMessage("This server is running the |cff4CFF00SubClassEqNPC |rmodule.");
         }
     }
 };
 
-class EquipPro_NPC : public CreatureScript
+class SubClassEq_NPC : public CreatureScript
 {
 
 public:
 
-    EquipPro_NPC() : CreatureScript("EquipPro_NPC") {}
+    SubClassEq_NPC() : CreatureScript("SubClassEq_NPC") {}
 
     bool OnGossipHello(Player* player, Creature* creature)
     {
@@ -779,7 +779,7 @@ public:
         // Called at World update tick
         void UpdateAI(const uint32 diff)
         {
-            if (EquipProEnableAI)
+            if (SubClassEqEnableAI)
             {
                 if (MessageTimer <= diff)
                 {
@@ -830,9 +830,9 @@ public:
     }
 };
 
-void AddEquipProNPCScripts()
+void AddSubClassEqNPCScripts()
 {
-    new EquipProConfig();
-    new EquipProAnnounce();
-    new EquipPro_NPC();
+    new SubClassEqConfig();
+    new SubClassEqAnnounce();
+    new SubClassEq_NPC();
 }
