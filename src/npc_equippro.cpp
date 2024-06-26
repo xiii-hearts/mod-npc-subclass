@@ -42,46 +42,46 @@
 #include "ScriptedCreature.h"
 #include "ScriptedGossip.h"
 
-bool SubClassEqEAnnounceModule;
-bool SubClassEqEEnableAI;
+bool SubClassAnnounceModule;
+bool SubClassEnableAI;
 
-class SubClassEqConfig : public WorldScript
+class SubClassConfig : public WorldScript
 {
 public:
-    SubClassEqConfig() : WorldScript("SubClassEqConfig_conf") { }
+    SubClassConfig() : WorldScript("SubClassConfig_conf") { }
 
     void OnBeforeConfigLoad(bool reload) override
     {
         if (!reload) {
-            SubClassEqAnnounceModule = sConfigMgr->GetOption<bool>("SubClassEqNPC.Announce", 1);
-            SubClassEqEnableAI = sConfigMgr->GetOption<bool>("SubClassEqNPC.EnableAI", 1);
+            SubClassAnnounceModule = sConfigMgr->GetOption<bool>("SubClassNPC.Announce", 1);
+            SubClassEnableAI = sConfigMgr->GetOption<bool>("SubClassNPC.EnableAI", 1);
         }
     }
 };
 
-class SubClassEqAnnounce : public PlayerScript
+class SubClassAnnounce : public PlayerScript
 {
 
 public:
 
-    SubClassEqAnnounce() : PlayerScript("SubClassEqAnnounce") {}
+    SubClassAnnounce() : PlayerScript("SubClassAnnounce") {}
 
     void OnLogin(Player* player)
     {
         // Announce Module
-        if (SubClassEqAnnounceModule)
+        if (SubClassAnnounceModule)
         {
-            ChatHandler(player->GetSession()).SendSysMessage("This server is running the |cff4CFF00SubClassEqNPC |rmodule.");
+            ChatHandler(player->GetSession()).SendSysMessage("This server is running the |cff4CFF00SubClassNPC |rmodule.");
         }
     }
 };
 
-class SubClassEq_NPC : public CreatureScript
+class SubClass_NPC : public CreatureScript
 {
 
 public:
 
-    SubClassEq_NPC() : CreatureScript("SubClassEq_NPC") {}
+    SubClass_NPC() : CreatureScript("SubClass_NPC") {}
 
     bool OnGossipHello(Player* player, Creature* creature)
     {
@@ -106,7 +106,7 @@ public:
         AddGossipItemFor(player, GOSSIP_ICON_BATTLE, "Gun Proficiency [10 Silv]", GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 19);
         AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Be Seeing You Again Next Time", GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 100);
 
-        SendGossipMenuFor(player, 600001, creature->GetGUID());
+        SendGossipMenuFor(player, 601014, creature->GetGUID());
         return true;
     }
 
@@ -779,7 +779,7 @@ public:
         // Called at World update tick
         void UpdateAI(const uint32 diff)
         {
-            if (SubClassEqEnableAI)
+            if (SubClassEnableAI)
             {
                 if (MessageTimer <= diff)
                 {
@@ -790,14 +790,14 @@ public:
                     {
                     case 1:
                     {
-                        me->Say("I can teach you anything and everything about equipment!", LANG_UNIVERSAL);
+                        me->Say("I can teach you anything and everything!", LANG_UNIVERSAL);
                         me->HandleEmoteCommand(EMOTE_ONESHOT_WAVE);
                         MessageTimer = urand(60000, 180000);
                         break;
                     }
                     case 2:
                     {
-                        me->Say("You gear up properly and differently!", LANG_UNIVERSAL);
+                        me->Say("You should learn to subclassing!", LANG_UNIVERSAL);
                         me->HandleEmoteCommand(EMOTE_ONESHOT_WAVE);
                         MessageTimer = urand(60000, 180000);
                         break;
@@ -830,9 +830,9 @@ public:
     }
 };
 
-void AddSubClassEqNPCScripts()
+void AddSubClassNPCScripts()
 {
-    new SubClassEqConfig();
-    new SubClassEqAnnounce();
-    new SubClassEq_NPC();
+    new SubClassConfig();
+    new SubClassAnnounce();
+    new SubClass_NPC();
 }
