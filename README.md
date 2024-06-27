@@ -9,7 +9,7 @@
 
 ## Description
 Adds an NPC that will teach all available Armors & Weapons Proficiency that are unavailable to all Classes, thus making a "subclass" like characters.
-Part 1 of The SubClass Series Module
+Part 1 of The SubClass Series Module.
 - e.g - Priest will be able to learn Armor and Weapon proficiency like Plate Armour and Two-Handed Sword.
 
 All of the procificiencies can be learned through purchasing the desired skills.
@@ -48,6 +48,14 @@ Weapon Proficiencies
 
 ## How To Use
 - Add the npc to the world by using GM command `.npc add 600001` or `.npc add temp 600001`
+
+## Updates
+- Added Warnings/Restrictions when player do not meet the cost and level requirement.
+- Added Monetary Check Requirement.
+- Added All of the Basic Equipment/Skills Proficiency to the NPC.
+- Added Exception For Players With The Learned Abilities/Skills.
+- Added Weapons Proficiency.
+- Added Armor Proficiency.
 
 
 
