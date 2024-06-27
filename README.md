@@ -9,6 +9,7 @@
 
 ## Description
 Adds an NPC that will teach all available Armors & Weapons Proficiency that are unavailable to all Classes, thus making a "subclass" like characters.
+
 Part 1 of The SubClass Series Module.
 - e.g - Priest will be able to learn Armor and Weapon proficiency like Plate Armour and Two-Handed Sword.
 
