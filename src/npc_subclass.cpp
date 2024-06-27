@@ -13,9 +13,8 @@
 
 ### To-Do ###
 ------------------------------------------------------------------------------------------------------------------
-- Add Warnings/Restrictions when player do not meet the cost and level requirement.
-- Add Intermediate Skills Proficiency NPC,
-- Add Advanced Skills Proficiency NPC,
+- Add Intermediate Skills Proficiency NPC.
+- Add Advanced Skills Proficiency NPC.
 - Test & Tweak SubClasses Skills & Spells (Balancing).
 
 ### Data ###
@@ -29,6 +28,7 @@
 
 ### Updates ###
 ------------------------------------------------------------------------------------------------------------------
+- Added Warnings/Restrictions when player do not meet the cost and level requirement.
 - Added Monetary Check Requirement.
 - Added All of the Basic Equipment/Skills Proficiency to the NPC.
 - Added Exception For Players With The Learned Abilities/Skills.
@@ -159,24 +159,32 @@ public:
                     ChatHandler(player->GetSession()).SendSysMessage("You are competent with this skill already");
                     player->PlayerTalkClass->SendCloseGossip();
                 }
-                else          
+                else
                 {            
-                    if (player->HasEnoughMoney(20000))
+                    if (player->GetLevel() < 45)
                     {
-                        // Set Skills
-                        player->SetSkill(413, 0, 1, 1);  // Mail Armor Skill
-
-                        // Learn Spells
-                        player->learnSpell(8737);   // Mail
-
-                        // Cost
-                        player->ModifyMoney(20000);   // 2 Golds
-
-                        // Chat Indicator
-                        ChatHandler(player->GetSession()).SendSysMessage("|cff4CFF00You're now able to wear Mail Armor");
-
-                        // Goodbye
+                        ChatHandler(player->GetSession()).SendSysMessage("Please come back when you have leveled up a bit more [Level 45]");
                         player->PlayerTalkClass->SendCloseGossip();
+                    }
+                    else if (player->GetLevel() >= 45)        
+                    {            
+                        if (player->HasEnoughMoney(20000))
+                        {
+                            // Set Skills
+                            player->SetSkill(413, 0, 1, 1);  // Mail Armor Skill
+
+                            // Learn Spells
+                            player->learnSpell(8737);   // Mail
+
+                            // Cost
+                            player->ModifyMoney(20000);   // 2 Golds
+
+                            // Chat Indicator
+                            ChatHandler(player->GetSession()).SendSysMessage("|cff4CFF00You're now able to wear Mail Armor");
+
+                            // Goodbye
+                            player->PlayerTalkClass->SendCloseGossip();
+                        }
                     }
                 }
             }
@@ -191,22 +199,30 @@ public:
                 }
                 else
                 {
-                    if (player->HasEnoughMoney(30000))
+                    if (player->GetLevel() < 60)
                     {
-                        // Set Skills
-                        player->SetSkill(293, 0, 1, 1);  // Plate Armor Skill
-
-                        // Learn Spells
-                        player->learnSpell(750);   // Plate
-
-                        // Cost
-                        player->ModifyMoney(-30000);   // 3 Golds 
-
-                        // Chat Indicator
-                        ChatHandler(player->GetSession()).SendSysMessage("|cff4CFF00You're now able to wear Plate Armor");
-
-                        // Goodbye
+                        ChatHandler(player->GetSession()).SendSysMessage("Please come back when you have leveled up a bit more [Level 60]");
                         player->PlayerTalkClass->SendCloseGossip();
+                    }
+                    else if (player->GetLevel() >= 60)        
+                    {  
+                        if (player->HasEnoughMoney(30000))
+                        {
+                            // Set Skills
+                            player->SetSkill(293, 0, 1, 1);  // Plate Armor Skill
+
+                            // Learn Spells
+                            player->learnSpell(750);   // Plate
+
+                            // Cost
+                            player->ModifyMoney(-30000);   // 3 Golds 
+
+                            // Chat Indicator
+                            ChatHandler(player->GetSession()).SendSysMessage("|cff4CFF00You're now able to wear Plate Armor");
+
+                            // Goodbye
+                            player->PlayerTalkClass->SendCloseGossip();
+                        }
                     }
                 }
             }
@@ -252,22 +268,30 @@ public:
                 }
                 else
                 {
-                    if (player->HasEnoughMoney(10000))
+                    if (player->GetLevel() < 25)
                     {
-                        // Learn Spells
-                        player->learnSpell(674);   // Dual Wield
+                            ChatHandler(player->GetSession()).SendSysMessage("Please come back when you have leveled up a bit more [Level 25]");
+                            player->PlayerTalkClass->SendCloseGossip();
+                    }
+                    else if (player->GetLevel() >= 25)        
+                    {  
+                        if (player->HasEnoughMoney(10000))
+                        {
+                            // Learn Spells
+                            player->learnSpell(674);   // Dual Wield
 
-                        // Cost
-                        player->ModifyMoney(-10000);   // 1 Gold
+                            // Cost
+                            player->ModifyMoney(-10000);   // 1 Gold
 
-                        // Chat Indicator
-                        ChatHandler(player->GetSession()).SendSysMessage("|cff4CFF00You're now able to Dual Wield your weapons");
+                            // Chat Indicator
+                            ChatHandler(player->GetSession()).SendSysMessage("|cff4CFF00You're now able to Dual Wield your weapons");
 
-                        // Goodbye
-                        player->PlayerTalkClass->SendCloseGossip();
+                            // Goodbye
+                            player->PlayerTalkClass->SendCloseGossip();
+                        }
                     }
                 }
-            }
+            }    
             break;
         
         case GOSSIP_ACTION_INFO_DEF + 6:
