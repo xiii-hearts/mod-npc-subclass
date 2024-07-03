@@ -24,6 +24,7 @@ Armor Proficiencies
 - Shield Wielding Proficiency
 
 Weapon Proficiencies
+- Dual Wield Proficiency
 - One-Handed Axe Proficiency
 - Two-Handed Axe Proficiency
 - One-Handed Sword Proficiency
@@ -43,7 +44,7 @@ Weapon Proficiencies
 
 ## Installation
 1) Unzip and place the module folder under the `modules` folder/directory of your AzerothCore source.
-2) Rename `NPC-Subclass-Equipment-main` folder to `NPC-Subclass-Equipment`
+2) Rename `mod-npc-subclass-master` folder to `mod-npc-subclass`
 3) Re-run cmake and launch a clean build of AzerothCore.
 4) Put the SQL file to the world database.
 
