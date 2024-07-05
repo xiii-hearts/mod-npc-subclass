@@ -55,7 +55,7 @@ Weapon Proficiencies
 `\azerothcore-wotlk\src\server\game\Entities\Player`
 2) Open up `PlayerStorage.cpp`
 3) Find this line `if (!allowEquip && GetSkillValue(itemSkill) == 0)`
-4) Paste this line above the it.
+4) Paste the lines below, above `if (!allowEquip && GetSkillValue(itemSkill) == 0)` line.
 
 ```
 switch (pProto->Class)
