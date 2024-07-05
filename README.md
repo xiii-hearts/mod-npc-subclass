@@ -1,7 +1,7 @@
 # ![logo](https://raw.githubusercontent.com/azerothcore/azerothcore.github.io/master/images/logo-github.png) AzerothCore
 
 - Latest build status with azerothcore:
-[![Build Status](https://github.com/xiii-hearts/mod-npc-equipment-proficiency/workflows/core-build/badge.svg?branch=master&event=push)](https://github.com/xiii-hearts/mod-npc-equipment-proficiency)
+[![Build Status](https://github.com/xiii-hearts/mod-npc-subclass/workflows/core-build/badge.svg?branch=master&event=push)](https://github.com/xiii-hearts/mod-npc-subclass)
 
 
 
