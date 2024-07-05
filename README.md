@@ -57,28 +57,29 @@ Weapon Proficiencies
 3) Find this line `if (!allowEquip && GetSkillValue(itemSkill) == 0)`
 4) Paste this line above the it.
 
-`switch (pProto->Class)`
-`{`
-`    case ITEM_CLASS_WEAPON:`
-`    {`
-`        if (pProto->SubClass & GetWeaponProficiency())`
-`        {`
-`            allowEquip = true;`
-`            break;`
-`        }`
-`    }`
-`    case ITEM_CLASS_ARMOR:`
-`    {`
-`        if (pProto->SubClass & GetArmorProficiency())`
-`        {`
-`            allowEquip = true;`
-`            break;`
-`        }`
-`    }`
-`}` 
- 
+```
+switch (pProto->Class)
+{
+    case ITEM_CLASS_WEAPON:
+    {
+        if (pProto->SubClass & GetWeaponProficiency())
+        {
+            allowEquip = true;
+            break;
+        }
+    }
+    case ITEM_CLASS_ARMOR:
+    {
+        if (pProto->SubClass & GetArmorProficiency())
+        {
+            allowEquip = true;
+            break;
+        }
+    }
+}
+```
 
-5 Now you should be able to retained all of the learned proficiencies without losing it upon loggin out.
+5) Now you should be able to retained all of the learned proficiencies without losing it upon loggin out.
 
 ## How To Use
 - Add the npc to the world by using GM command `.npc add 600001` or `.npc add temp 600001`
