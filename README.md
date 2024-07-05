@@ -45,8 +45,40 @@ Weapon Proficiencies
 ## Installation
 1) Unzip and place the module folder under the `modules` folder/directory of your AzerothCore source.
 2) Rename `mod-npc-subclass-master` folder to `mod-npc-subclass`
-3) Re-run cmake and launch a clean build of AzerothCore.
-4) Put the SQL file to the world database.
+3) Check `Modifying Core Section` below for further info before compiling.
+4) After you're done with modifying the core, proceed to the next step.
+5) Re-run cmake and launch a clean build of AzerothCore.
+6) Put the SQL file to the world database.
+
+## Modifying Core Section
+1) Go to the Azerothcore Source/Root folder.
+`\azerothcore-wotlk\src\server\game\Entities\Player`
+2) Open up `PlayerStorage.cpp`
+3) Find this line `if (!allowEquip && GetSkillValue(itemSkill) == 0)`
+4) Paste this line above the it.
+`
+  switch (pProto->Class)
+{
+    case ITEM_CLASS_WEAPON:
+    {
+        if (pProto->SubClass & GetWeaponProficiency())
+        {
+            allowEquip = true;
+            break;
+        }
+    }
+    case ITEM_CLASS_ARMOR:
+    {
+        if (pProto->SubClass & GetArmorProficiency())
+        {
+            allowEquip = true;
+            break;
+        }
+    }
+} 
+` 
+
+5 Now you should be able to retained all of the learned proficiencies without losing it upon loggin out.
 
 ## How To Use
 - Add the npc to the world by using GM command `.npc add 600001` or `.npc add temp 600001`
