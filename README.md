@@ -45,7 +45,7 @@ Weapon Proficiencies
 ## Installation
 1) Unzip and place the module folder under the `modules` folder/directory of your AzerothCore source.
 2) Rename `mod-npc-subclass-master` folder to `mod-npc-subclass`
-3) Check out `Modifying Core Section` below for the MUST extra steps before compiling.
+3) Check out `Modifying Core Section` below for the MUST TO DO extra steps before compiling.
 4) After you're done with modifying the core, proceed to the next step.
 5) Re-run cmake and launch a clean build of AzerothCore.
 6) Put the SQL file to the world database.
